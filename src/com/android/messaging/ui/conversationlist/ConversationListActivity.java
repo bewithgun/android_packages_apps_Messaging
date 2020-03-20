@@ -43,8 +43,13 @@ public class ConversationListActivity extends AbstractConversationListActivity {
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setBackgroundDrawable(new ColorDrawable(
-                getResources().getColor(R.color.action_bar_background_color)));
+        TypedValue typedValue = new TypedValue();
+		ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this,
+     	android.R.style.Theme_DeviceDefault);
+		contextThemeWrapper.getTheme().resolveAttribute(android.R.attr.colorAccent,
+     	typedValue, true);
+		int colorsystem = typedValue.data; 
+        actionBar.setBackgroundDrawable(new ColorDrawable(colorsystem));
         actionBar.show();
         super.updateActionBar(actionBar);
     }
