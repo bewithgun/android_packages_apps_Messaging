@@ -21,6 +21,9 @@ import android.os.Bundle;
 import androidx.appcompat.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.util.TypedValue;
+import android.view.ContextThemeWrapper;
+
 
 import com.android.messaging.R;
 import com.android.messaging.ui.UIIntents;
@@ -43,13 +46,8 @@ public class ConversationListActivity extends AbstractConversationListActivity {
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        TypedValue typedValue = new TypedValue();
-		ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this,
-     	android.R.style.Theme_DeviceDefault);
-		contextThemeWrapper.getTheme().resolveAttribute(android.R.attr.colorAccent,
-     	typedValue, true);
-		int colorsystem = typedValue.data; 
-        actionBar.setBackgroundDrawable(new ColorDrawable(colorsystem));
+        ColorDrawable bgup = new ColorDrawable(0xFFFFFFFF);
+        actionBar.setBackgroundDrawable(bgup);
         actionBar.show();
         super.updateActionBar(actionBar);
     }
